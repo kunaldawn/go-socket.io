@@ -94,7 +94,7 @@ func (c *conn) Close() error {
 
 func (c *conn) On(event string, f interface{}) {
 	if f != nil {
-		c.eventHandlers.Store(event, newEventFunc(f))
+		c.eventHandlers.Store(event, newAckFunc(f))
 	} else {
 		c.eventHandlers.Delete(event)
 	}
